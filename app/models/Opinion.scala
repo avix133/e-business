@@ -13,6 +13,6 @@ import play.api.libs.json._
 case class Opinion(product: Long, comment: String)
 
 object Opinion {
-  implicit val opinionFormat = Json.format[Order]
+  implicit val opinionFormat = Json.format[Opinion]
 }
 

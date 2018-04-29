@@ -7,8 +7,14 @@ GET     /                           controllers.ProductController.index
 POST    /addproduct                 controllers.ProductController.addProduct
 GET     /products                   controllers.ProductController.getProducts
 GET     /categories                 controllers.CategoryController.getCategories
+GET     /category                   controllers.CategoryController.index
+POST    /addcategory                controllers.CategoryController.addCategory
 GET     /basket_ids                 controllers.BasketIdsController.getBasketIds
+GET     /basketid                   controllers.BasketIdsController.index
+POST    /addbasketid                controllers.BasketIdsController.addBasketId
 GET     /basket_product             controllers.BasketProductController.getBasketProducts
+GET     /basketproduct              controllers.BasketProductController.index
+POST    /addbasketproduct           controllers.BasketProductController.addBasketProduct
 GET     /opinions                   controllers.OpinionController.getOpinions
 GET     /payments                   controllers.PaymentController.getPayments
 GET     /keywords                   controllers.KeywordController.getKeywords

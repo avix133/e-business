@@ -2,6 +2,8 @@ package controllers
 
 import javax.inject._
 import models._
+import play.api.data.Form
+import play.api.data.Forms._
 import play.api.libs.json.Json
 import play.api.mvc._
 
@@ -13,11 +15,28 @@ class CategoryController @Inject()(categoryRepo: CategoryRepository,
   extends MessagesAbstractController(cc) {
 
 
-  //  val categoryForm: Form[CreateCategoryForm] = Form {
-  //    mapping(
-  //      "name" -> nonEmptyText,
-  //    )(CreateCategoryForm.apply)(CreateCategoryForm.unapply)
-  //  }
+  val categoryForm: Form[CreateCategoryForm] = Form {
+    mapping(
+      "name" -> nonEmptyText
+    )(CreateCategoryForm.apply)(CreateCategoryForm.unapply)
+  }
+
+  def index = Action { implicit request =>
+    Ok(views.html.category(categoryForm))
+  }
+
+  def addCategory = Action { implicit request =>
+    categoryForm.bindFromRequest.fold(
+      formWithErrors => {
+        BadRequest(views.html.category(formWithErrors))
+      },
+      category => {
+        val categoryId = categoryRepo.create(category.name)
+        Redirect(routes.CategoryController.getCategories()).flashing("success" -> "Contact saved!")
+      }
+    )
+
+  }
 
 
   def getCategories = Action.async { implicit request =>

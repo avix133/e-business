@@ -13,8 +13,8 @@ class OpinionController @Inject()(opinionRepository: OpinionRepository,
   extends MessagesAbstractController(cc) {
 
   def getOpinions = Action.async { implicit request =>
-    opinionRepository.list().map { basketIds =>
-      Ok(Json.toJson(basketIds))
+    opinionRepository.list().map { opinion =>
+      Ok(Json.toJson(opinion))
     }
   }
 }

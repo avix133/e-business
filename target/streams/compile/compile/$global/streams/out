@@ -1,4 +1,4 @@
-[warn] /home/dawid/IdeaProjects/Ebusiness/app/models/ProductRepository.scala:6:15: imported `CategoryRepository' is permanently hidden by definition of class CategoryRepository in package models
-[warn] import models.CategoryRepository
-[warn]               ^
-[warn] one warning found
+[error] /home/dawid/IdeaProjects/Ebusiness/app/controllers/OpinionController.scala:17:21: No Json serializer found for type Seq[models.Opinion]. Try to implement an implicit Writes or Format for this type.
+[error]       Ok(Json.toJson(basketIds))
+[error]                     ^
+[error] one error found

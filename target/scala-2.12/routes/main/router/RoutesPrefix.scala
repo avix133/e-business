@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dawid/IdeaProjects/Ebusiness/conf/routes
-// @DATE:Sat Apr 28 14:50:53 CEST 2018
+// @DATE:Sun Apr 29 21:01:29 CEST 2018
 
 
 package router {

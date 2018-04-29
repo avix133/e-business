@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dawid/IdeaProjects/Ebusiness/conf/routes
-// @DATE:Sat Apr 28 14:50:53 CEST 2018
+// @DATE:Sun Apr 29 21:01:29 CEST 2018
 
 package router
 
@@ -14,23 +14,31 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  ProductController_1: controllers.ProductController,
-  // @LINE:11
-  Assets_0: controllers.Assets,
+  ProductController_3: controllers.ProductController,
+  // @LINE:9
+  CategoryController_2: controllers.CategoryController,
+  // @LINE:10
+  BasketIdsController_0: controllers.BasketIdsController,
+  // @LINE:13
+  Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    ProductController_1: controllers.ProductController,
-    // @LINE:11
-    Assets_0: controllers.Assets
-  ) = this(errorHandler, ProductController_1, Assets_0, "/")
+    ProductController_3: controllers.ProductController,
+    // @LINE:9
+    CategoryController_2: controllers.CategoryController,
+    // @LINE:10
+    BasketIdsController_0: controllers.BasketIdsController,
+    // @LINE:13
+    Assets_1: controllers.Assets
+  ) = this(errorHandler, ProductController_3, CategoryController_2, BasketIdsController_0, Assets_1, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, ProductController_1, Assets_0, prefix)
+    new Routes(errorHandler, ProductController_3, CategoryController_2, BasketIdsController_0, Assets_1, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -41,6 +49,8 @@ class Routes(
     ("""GET""", this.prefix, """controllers.ProductController.index"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """addproduct""", """controllers.ProductController.addProduct"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """products""", """controllers.ProductController.getProducts"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.CategoryController.getCategories"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """basket_ids""", """controllers.BasketIdsController.getBasketIds"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -54,7 +64,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_ProductController_index0_invoker = createInvoker(
-    ProductController_1.index,
+    ProductController_3.index,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProductController",
@@ -72,7 +82,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("addproduct")))
   )
   private[this] lazy val controllers_ProductController_addProduct1_invoker = createInvoker(
-    ProductController_1.addProduct,
+    ProductController_3.addProduct,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProductController",
@@ -90,7 +100,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("products")))
   )
   private[this] lazy val controllers_ProductController_getProducts2_invoker = createInvoker(
-    ProductController_1.getProducts,
+    ProductController_3.getProducts,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProductController",
@@ -103,12 +113,48 @@ class Routes(
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
+  // @LINE:9
+  private[this] lazy val controllers_CategoryController_getCategories3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categories")))
+  )
+  private[this] lazy val controllers_CategoryController_getCategories3_invoker = createInvoker(
+    CategoryController_2.getCategories,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CategoryController",
+      "getCategories",
+      Nil,
+      "GET",
+      this.prefix + """categories""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:10
+  private[this] lazy val controllers_BasketIdsController_getBasketIds4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("basket_ids")))
+  )
+  private[this] lazy val controllers_BasketIdsController_getBasketIds4_invoker = createInvoker(
+    BasketIdsController_0.getBasketIds,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BasketIdsController",
+      "getBasketIds",
+      Nil,
+      "GET",
+      this.prefix + """basket_ids""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:13
+  private[this] lazy val controllers_Assets_versioned5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
-    Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
+  private[this] lazy val controllers_Assets_versioned5_invoker = createInvoker(
+    Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -127,25 +173,37 @@ class Routes(
     // @LINE:6
     case controllers_ProductController_index0_route(params@_) =>
       call { 
-        controllers_ProductController_index0_invoker.call(ProductController_1.index)
+        controllers_ProductController_index0_invoker.call(ProductController_3.index)
       }
   
     // @LINE:7
     case controllers_ProductController_addProduct1_route(params@_) =>
       call { 
-        controllers_ProductController_addProduct1_invoker.call(ProductController_1.addProduct)
+        controllers_ProductController_addProduct1_invoker.call(ProductController_3.addProduct)
       }
   
     // @LINE:8
     case controllers_ProductController_getProducts2_route(params@_) =>
       call { 
-        controllers_ProductController_getProducts2_invoker.call(ProductController_1.getProducts)
+        controllers_ProductController_getProducts2_invoker.call(ProductController_3.getProducts)
       }
   
-    // @LINE:11
-    case controllers_Assets_versioned3_route(params@_) =>
+    // @LINE:9
+    case controllers_CategoryController_getCategories3_route(params@_) =>
+      call { 
+        controllers_CategoryController_getCategories3_invoker.call(CategoryController_2.getCategories)
+      }
+  
+    // @LINE:10
+    case controllers_BasketIdsController_getBasketIds4_route(params@_) =>
+      call { 
+        controllers_BasketIdsController_getBasketIds4_invoker.call(BasketIdsController_0.getBasketIds)
+      }
+  
+    // @LINE:13
+    case controllers_Assets_versioned5_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned3_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned5_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }

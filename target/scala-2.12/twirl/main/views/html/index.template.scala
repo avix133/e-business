@@ -18,7 +18,7 @@ import play.api.data._
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[CreateProductForm],Seq[Category],MessagesRequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(product: Form[CreateProductForm],category: Seq[Category])(implicit request: MessagesRequestHeader):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(product: Form[CreateProductForm], category: Seq[Category])(implicit request: MessagesRequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*3.2*/import helper._
@@ -65,10 +65,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Apr 28 14:50:54 CEST 2018
+                  DATE: Mon Apr 30 22:28:18 CEST 2018
                   SOURCE: /home/dawid/IdeaProjects/Ebusiness/app/views/index.scala.html
-                  HASH: 2e0015329d8881b8e550beda9fcb2586c0920c49
-                  MATRIX: 782->1|954->103|998->101|1025->119|1052->121|1066->128|1099->153|1145->162|1175->167|1190->174|1224->188|1255->190|1283->193|1317->219|1356->221|1386->225|1438->268|1478->270|1508->274|1555->300|1585->304|1639->337|1671->342|1739->384|1775->404|1814->405|1845->409|1888->425|1900->428|1924->431|1954->434|1966->437|1992->442|2035->455|2066->459|2107->474|2119->478|2150->488|2181->492|2290->571|2322->573
+                  HASH: 23f080bb92401f71493231589f894cd72a88e8b4
+                  MATRIX: 782->1|955->104|999->102|1026->120|1053->122|1067->129|1100->154|1146->163|1176->168|1191->175|1225->189|1256->191|1284->194|1318->220|1357->222|1387->226|1439->269|1479->271|1509->275|1556->301|1586->305|1640->338|1672->343|1740->385|1776->405|1815->406|1846->410|1889->426|1901->429|1925->432|1955->435|1967->438|1993->443|2036->456|2067->460|2108->475|2120->479|2151->489|2182->493|2291->572|2323->574
                   LINES: 21->1|24->3|27->2|28->4|29->5|29->5|29->5|29->5|30->6|30->6|30->6|31->7|33->9|33->9|33->9|34->10|34->10|34->10|35->11|35->11|36->12|36->12|38->14|39->15|39->15|39->15|40->16|40->16|40->16|40->16|40->16|40->16|40->16|41->17|42->18|45->21|45->21|45->21|47->23|50->26|51->27
                   -- GENERATED --
               */

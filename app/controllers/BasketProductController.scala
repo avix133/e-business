@@ -34,7 +34,7 @@ class BasketProductController @Inject()(basketProductRepository: BasketProductRe
       },
       basketProduct => {
         val basketId = basketProductRepository.create(basketProduct.basket, basketProduct.product, basketProduct.amount)
-        Redirect(routes.BasketIdsController.getBasketIds()).flashing("success" -> "Contact saved!")
+        Redirect(routes.BasketProductController.getBasketProducts()).flashing("success" -> "Contact saved!")
       }
     )
 

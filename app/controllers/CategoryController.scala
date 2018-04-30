@@ -32,7 +32,7 @@ class CategoryController @Inject()(categoryRepo: CategoryRepository,
       },
       category => {
         val categoryId = categoryRepo.create(category.name)
-        Redirect(routes.CategoryController.getCategories()).flashing("success" -> "Contact saved!")
+        Redirect(routes.CategoryController.getCategories()).flashing("success" -> "Category saved!")
       }
     )
 

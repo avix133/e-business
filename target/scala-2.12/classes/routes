@@ -10,12 +10,24 @@ GET     /categories                 controllers.CategoryController.getCategories
 GET     /category                   controllers.CategoryController.index
 POST    /addcategory                controllers.CategoryController.addCategory
 GET     /basket_ids                 controllers.BasketIdsController.getBasketIds
-GET     /basketids                  controllers.BasketIdsController.index
+GET     /basketid                   controllers.BasketIdsController.index
 POST    /addbasketid                controllers.BasketIdsController.addBasketId
 GET     /basket_product             controllers.BasketProductController.getBasketProducts
+GET     /basketproduct              controllers.BasketProductController.index
+POST    /addbasketproduct           controllers.BasketProductController.addBasketProduct
 GET     /opinions                   controllers.OpinionController.getOpinions
+GET     /opinion                    controllers.OpinionController.index
+POST    /addopinion                 controllers.OpinionController.addOpinion
 GET     /payments                   controllers.PaymentController.getPayments
+GET     /payment                    controllers.PaymentController.index
+POST    /addpayment                 controllers.PaymentController.addPayment
 GET     /keywords                   controllers.KeywordController.getKeywords
+GET     /keyword                    controllers.KeywordController.index
+POST    /addkeyword                 controllers.KeywordController.addKeyword
+GET     /orders                     controllers.OrderController.getOrders
+GET     /order                      controllers.OrderController.index
+POST    /addorder                   controllers.OrderController.addOrder
+
 
 
 # Map static resources from the /public folder to the /assets URL path

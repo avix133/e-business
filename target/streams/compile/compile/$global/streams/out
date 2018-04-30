@@ -1,4 +1,20 @@
-[error] /home/dawid/IdeaProjects/Ebusiness/app/controllers/OpinionController.scala:17:21: No Json serializer found for type Seq[models.Opinion]. Try to implement an implicit Writes or Format for this type.
-[error]       Ok(Json.toJson(basketIds))
-[error]                     ^
-[error] one error found
+[warn] /home/dawid/IdeaProjects/Ebusiness/app/controllers/PaymentController.scala:19:23: a pure expression does nothing in statement position; multiline expressions may require enclosing parentheses
+[warn]   play.api.data.Forms.nonEmptyText
+[warn]                       ^
+[error] /home/dawid/IdeaProjects/Ebusiness/app/models/ProductRepository.scala:51:69: type mismatch;
+[error]  found   : ((Long, String, String, Int)) => models.Product
+[error]  required: ((Long, String, String, Long)) => ?
+[error]     def * = (id, name, description, category) <> ((Product.apply _).tupled, Product.unapply)
+[error]                                                                     ^
+[error] /home/dawid/IdeaProjects/Ebusiness/app/models/ProductRepository.scala:51:85: type mismatch;
+[error]  found   : Option[(Long, String, String, Int)]
+[error]  required: Option[(Long, String, String, Long)]
+[error]     def * = (id, name, description, category) <> ((Product.apply _).tupled, Product.unapply)
+[error]                                                                                     ^
+[error] /home/dawid/IdeaProjects/Ebusiness/app/models/ProductRepository.scala:80:89: type mismatch;
+[error]  found   : Long
+[error]  required: Int
+[error]       into { case ((name, description, category), id) => Product(id, name, description, category) }
+[error]                                                                                         ^
+[warn] one warning found
+[error] three errors found

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/dawid/IdeaProjects/Ebusiness/conf/routes
-// @DATE:Sun Apr 29 22:44:06 CEST 2018
+// @DATE:Mon Apr 30 22:54:41 CEST 2018
 
 package controllers;
 
@@ -15,6 +15,7 @@ public class routes {
   public static final controllers.ReversePaymentController PaymentController = new controllers.ReversePaymentController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCategoryController CategoryController = new controllers.ReverseCategoryController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseProductController ProductController = new controllers.ReverseProductController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseOrderController OrderController = new controllers.ReverseOrderController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseKeywordController KeywordController = new controllers.ReverseKeywordController(RoutesPrefix.byNamePrefix());
 
   public static class javascript {
@@ -26,6 +27,7 @@ public class routes {
     public static final controllers.javascript.ReversePaymentController PaymentController = new controllers.javascript.ReversePaymentController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCategoryController CategoryController = new controllers.javascript.ReverseCategoryController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseProductController ProductController = new controllers.javascript.ReverseProductController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseOrderController OrderController = new controllers.javascript.ReverseOrderController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseKeywordController KeywordController = new controllers.javascript.ReverseKeywordController(RoutesPrefix.byNamePrefix());
   }
 

@@ -36,7 +36,7 @@ class ProductRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, val 
     /** The age column */
     def description = column[String]("description")
 
-    def category = column[Int]("category")
+    def category = column[Long]("category")
 
     def category_fk = foreignKey("cat_fk", category, cat)(_.id)
 

@@ -2,49 +2,33 @@ package controllers
 
 import javax.inject._
 import models._
-import play.api.data.Form
-import play.api.data.Forms._
-import play.api.libs.json.Json
+import play.api.libs.json._
 import play.api.mvc._
 
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ExecutionContext, Future}
+
 
 class CategoryController @Inject()(categoryRepo: CategoryRepository,
                                    cc: MessagesControllerComponents
-                                  )(implicit ec: ExecutionContext)
+                                )(implicit ec: ExecutionContext)
   extends MessagesAbstractController(cc) {
 
+  import play.api.libs.json.Json
 
-  val categoryForm: Form[CreateCategoryForm] = Form {
-    mapping(
-      "name" -> nonEmptyText
-    )(CreateCategoryForm.apply)(CreateCategoryForm.unapply)
-  }
+  def addCategory(): Action[JsValue] = Action.async(parse.json) { implicit request =>
 
-  def index = Action { implicit request =>
-    Ok(views.html.category(categoryForm))
-  }
+    val categoryFromJson: JsResult[Category] = Json.fromJson[Category](request.body)
 
-  def addCategory = Action { implicit request =>
-    categoryForm.bindFromRequest.fold(
-      formWithErrors => {
-        BadRequest(views.html.category(formWithErrors))
-      },
-      category => {
-        val categoryId = categoryRepo.create(category.name)
-        Redirect(routes.CategoryController.getCategories()).flashing("success" -> "Category saved!")
-      }
-    )
-
-  }
-
-
-  def getCategories = Action.async { implicit request =>
-    categoryRepo.list().map { products =>
-      Ok(Json.toJson(products))
+    categoryFromJson match {
+      case JsSuccess(c: Category, path: JsPath) =>
+        categoryRepo.create(c.name).map {
+          _ =>
+            Ok(Json.obj(
+              "status" -> "OK"
+            ))
+        }
+      case e: JsError => Future.successful(Ok("Errors: " + JsError.toJson(e).toString()))
     }
+
   }
 }
-
-
-case class CreateCategoryForm(name: String)

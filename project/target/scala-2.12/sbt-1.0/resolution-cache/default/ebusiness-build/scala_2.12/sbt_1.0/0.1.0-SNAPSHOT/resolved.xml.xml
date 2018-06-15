@@ -4,7 +4,7 @@
 		module="ebusiness-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20180428144420"
+		publication="20180615011157"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>

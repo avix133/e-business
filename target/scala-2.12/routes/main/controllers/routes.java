@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/dawid/IdeaProjects/Ebusiness/conf/routes
-// @DATE:Mon Apr 30 22:54:41 CEST 2018
+// @SOURCE:/home/dawid/IdeaProjects/ebusiness/conf/routes
+// @DATE:Fri Jun 15 01:38:43 CEST 2018
 
 package controllers;
 
@@ -8,27 +8,19 @@ import router.RoutesPrefix;
 
 public class routes {
   
-  public static final controllers.ReverseOpinionController OpinionController = new controllers.ReverseOpinionController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseAssets Assets = new controllers.ReverseAssets(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseBasketIdsController BasketIdsController = new controllers.ReverseBasketIdsController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseBasketProductController BasketProductController = new controllers.ReverseBasketProductController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReversePaymentController PaymentController = new controllers.ReversePaymentController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseCategoryController CategoryController = new controllers.ReverseCategoryController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseProductController ProductController = new controllers.ReverseProductController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseOrderController OrderController = new controllers.ReverseOrderController(RoutesPrefix.byNamePrefix());
-  public static final controllers.ReverseKeywordController KeywordController = new controllers.ReverseKeywordController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseSignInController SignInController = new controllers.ReverseSignInController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseSocialAuthController SocialAuthController = new controllers.ReverseSocialAuthController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseApplicationController ApplicationController = new controllers.ReverseApplicationController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseActivateAccountController ActivateAccountController = new controllers.ReverseActivateAccountController(RoutesPrefix.byNamePrefix());
 
   public static class javascript {
     
-    public static final controllers.javascript.ReverseOpinionController OpinionController = new controllers.javascript.ReverseOpinionController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseAssets Assets = new controllers.javascript.ReverseAssets(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseBasketIdsController BasketIdsController = new controllers.javascript.ReverseBasketIdsController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseBasketProductController BasketProductController = new controllers.javascript.ReverseBasketProductController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReversePaymentController PaymentController = new controllers.javascript.ReversePaymentController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseCategoryController CategoryController = new controllers.javascript.ReverseCategoryController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseProductController ProductController = new controllers.javascript.ReverseProductController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseOrderController OrderController = new controllers.javascript.ReverseOrderController(RoutesPrefix.byNamePrefix());
-    public static final controllers.javascript.ReverseKeywordController KeywordController = new controllers.javascript.ReverseKeywordController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseSignInController SignInController = new controllers.javascript.ReverseSignInController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseSocialAuthController SocialAuthController = new controllers.javascript.ReverseSocialAuthController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseApplicationController ApplicationController = new controllers.javascript.ReverseApplicationController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseActivateAccountController ActivateAccountController = new controllers.javascript.ReverseActivateAccountController(RoutesPrefix.byNamePrefix());
   }
 
 }

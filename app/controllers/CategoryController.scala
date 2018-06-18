@@ -5,6 +5,7 @@ import models._
 import play.api.libs.json._
 import play.api.mvc._
 
+import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.{ExecutionContext, Future}
 
 
@@ -30,5 +31,21 @@ class CategoryController @Inject()(categoryRepo: CategoryRepository,
       case e: JsError => Future.successful(Ok("Errors: " + JsError.toJson(e).toString()))
     }
 
+  }
+
+  def getCategoryByName(name: String):Action[AnyContent] = Action.async { implicit request =>
+    var categoryId: Int = -1
+
+    categoryRepo.list().map { categories =>
+      categories.foreach(category => {
+        if (category.name.toUpperCase == name.toUpperCase()) {
+          categoryId = category.id
+        }
+      })
+      if (categoryId > -1)
+        Ok(Json.toJson(categoryId))
+      else
+        Ok(Json.toJson(null))
+    }
   }
 }

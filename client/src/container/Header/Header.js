@@ -25,7 +25,7 @@ class Header extends Component {
     };
 
     getAmountAddedProducts = () => {
-        const addedProduct = JSON.parse(localStorage.getItem('productInShoppingCart'));
+        const addedProduct = JSON.parse(localStorage.getItem('productInCart'));
         return addedProduct ? addedProduct.length : 0;
     };
 
@@ -36,7 +36,7 @@ class Header extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.productAddedToShoppingCarts) {
-            const addedProduct = JSON.parse(localStorage.getItem('productInShoppingCart'));
+            const addedProduct = JSON.parse(localStorage.getItem('productInCart'));
             const amountAddedProduct = addedProduct ? addedProduct.length : 0;
 
             this.setState({amountAddedProductToCart: amountAddedProduct});
@@ -46,12 +46,14 @@ class Header extends Component {
     checkAuthUser = () => {
         const {authenticated} = this.props;
         const name = getUserName();
+        // console.log("Name: " + name);
+        console.log("Authenticated: " + authenticated);
         if (authenticated) {
             return (
                 <div className="if-login" onClick={() => this.props.signOut()}>
-                    <span>Welcome, {name}</span>
+                    <span>Logged as {name}</span>
                     <a href="http://localhost:9090/signOut">
-                        <img src="/images/logout.png" alt=""/>
+                        {/*<img src="/images/logout.png" alt=""/>*/}
                     </a>
                 </div>)
         } else {
@@ -69,8 +71,7 @@ class Header extends Component {
                 <div className="row">
                     <div className="col-lg-12">
                         <div id="title">
-                            <Link to="/"><img src="/images/title-img.png" alt=""/></Link>
-                            <h1>SMART-SHOP</h1>
+                            <h1>My Shop</h1>
                         </div>
                         <div id="user">
                             {this.checkAuthUser()}
@@ -79,7 +80,7 @@ class Header extends Component {
                     </div>
                 </div>
             </div>
-            < Search handleSubmitSearch={(values) => this.handleSubmitSearch(values)}/>
+            {/*< Search handleSubmitSearch={(values) => this.handleSubmitSearch(values)}/>*/}
             <Categories/>
         </Fragment>
     }

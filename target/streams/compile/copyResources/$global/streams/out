@@ -1,9 +1,12 @@
 [debug] Copy resource mappings: 
+[debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/db,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/db)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/evolutions,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/evolutions)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/logback.xml,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/logback.xml)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/messages,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/messages)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/routes,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/routes)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/silhouette.conf,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/silhouette.conf)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/application.conf,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/application.conf)
+[debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/db/main_product.sql,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/db/main_product.sql)
+[debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/db/main_category.sql,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/db/main_category.sql)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/evolutions/default,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/evolutions/default)
 [debug] 	(/home/dawid/IdeaProjects/ebusiness/conf/evolutions/default/1.sql,/home/dawid/IdeaProjects/ebusiness/target/scala-2.12/classes/evolutions/default/1.sql)

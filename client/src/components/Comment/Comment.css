@@ -13,7 +13,7 @@
 .comment .user {
   display: flex;
   align-items: center;
-  font-family: "Montserrat", sans-serif; }
+  font-family: Helvetica, sans-serif; }
   .comment .user img {
     margin-right: 20px; }
   .comment .user .user-name {
@@ -23,11 +23,11 @@
   .comment .user .data {
     margin: 0;
     color: #007bff;
-    font-family: "Montserrat", sans-serif;
+    font-family: Helvetica, sans-serif;
     font-size: 12px; }
 
 .comment .content {
-  font-family: "Montserrat", sans-serif;
+  font-family: Helvetica, sans-serif;
   padding: 0 0 0 70px;
   margin-top: 5px; }
   .comment .content > div {

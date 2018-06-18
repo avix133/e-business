@@ -45,8 +45,9 @@ class Cart extends Component {
             });
 
             rightProduct.map(prod => {
-                const {cost, amount} = prod;
-                const allCost = parseInt(cost.substring(0, cost.length - 1), 10) * amount;
+                var cost = prod.price;
+                console.log("cost: " + cost);
+                const allCost = parseInt(cost.substring(0, cost.length - 1), 10) * prod.amount;
                 summaryCost += allCost;
                 prod.allCost = `${allCost}$`;
 
@@ -118,19 +119,19 @@ class Cart extends Component {
                         {products.map(prod => {
 
                             const {
-                                imgUrl,
-                                title,
+                                image,
+                                name,
                                 allCost,
-                                cost,
+                                price,
                                 id,
                                 amount
                             } = prod;
 
                             const props = {
-                                imgUrl,
+                                image,
+                                name,
                                 allCost,
-                                title,
-                                prize: cost,
+                                price,
                                 id,
                                 amount,
                                 changeAmountProduct: (id, type) => this.changeAmountProduct(id, type),
@@ -168,11 +169,6 @@ class Cart extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-lg-12 text-center">
-                        <h1 className="shopping-cart-title">Your shopping cart:</h1>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-lg-12">
                         {this.renderProductsOfCart()}

@@ -6,10 +6,12 @@ import Cart from "../Cart/Cart";
 class ShoppingCartPage extends Component {
     render() {
         return (
-            <Fragment>
-                <Header/>
-                <Cart/>
-            </Fragment>
+			<div style={{backgroundColor:'#6dc4aa'}}>
+                <Fragment>
+                    <Header/>
+                    <Cart/>
+                </Fragment>
+            </div>
         )
     }
 }

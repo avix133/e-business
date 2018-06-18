@@ -7,10 +7,8 @@ const ProductCart = (props) => {
     return (
         <div className="custom-row">
             <div className="custom-td">
-                <Link to={`product/${props.id}`}>
-                    <img src={`images/${props.imgUrl}`} alt=""/>
-                    <p> {props.title}</p>
-                </Link>
+                    <img src={`images/product/${props.image}.png`} alt=""/>
+                    <p> {props.name}</p>
             </div>
             <div className="custom-td amount-product">
                 <div onClick={() => props.changeAmountProduct(props.id, "ADD")}>
@@ -22,7 +20,7 @@ const ProductCart = (props) => {
                 </div>
             </div>
             <div className="custom-td">
-                <p>{props.prize}</p>
+                <p>{props.amount}</p>
             </div>
             <div className="custom-td">
                 <p>{props.allCost}</p>

@@ -5,7 +5,6 @@ import * as actions from '../../actions';
 import {withRouter} from "react-router-dom";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
-import Preloader from '../../components/Preloader/Preloader';
 
 import './ProductsCards.css';
 import NoProduct from "../../components/NoProducts/NoProducts";
@@ -37,20 +36,22 @@ class ProductCards extends Component {
         return products.map(product => {
             const {
                 id,
-                title,
-                imgUrl,
-                cost,
-                freeDelivery
+                name,
+                description,
+                category,
+                image,
+				price
             } = product;
 
             const props = {
                 idProduct: id,
-                title,
-                imgUrl,
-                cost,
-                freeDelivery,
-                handleAddProductToShoppingCarts: this.handleAddProductToShoppingCarts,
-                goToDescription: (id) => this.goToDescription(id)
+                name,
+                description,
+                category,
+                image,
+				price,
+                handleAddProductToShoppingCarts: this.handleAddProductToShoppingCarts
+                // goToDescription: (id) => this.goToDescription(id)
             };
             return <ProductCard {...props} />
         });
@@ -59,27 +60,34 @@ class ProductCards extends Component {
     renderProducts = () => {
         const {allProducts, filteredProducts, noProducts} = this.state;
 
+        console.log("render products: " + allProducts);
+		console.log("render products no products: " + noProducts);
+
         if (noProducts) {
-            return <NoProduct information={'No products. You have to change key words!'}/>
+            return <NoProduct information={'No products.'}/>
         } else if (allProducts && !filteredProducts) {
             return this.renderProductCard(allProducts);
         } else if (filteredProducts) {
             return this.renderProductCard(filteredProducts);
         } else {
-            return <Preloader/>
+            return <b>no products</b>
         }
     };
 
     filterDataByCategory = category => {
+    	console.log("filterByCategory in ProductCards");
         const {allProducts} = this.state;
         let rightProducts = null;
-        if (category === 'all') {
+        console.log("Category: " + category);
+        if (category === 'All') {
+        	console.log("Category all: " + allProducts);
             rightProducts = allProducts;
         } else {
             rightProducts = allProducts.filter(product => product.category === category);
         }
 
         if (rightProducts.length > 0) {
+			console.log("Right products lenght > 0");
             this.setState({
                 filteredProducts: rightProducts,
                 noProducts: false

@@ -16,7 +16,7 @@ class Categories extends Component {
     getInitialState = () => {
         return {
             activeCat: [false, false, false],
-            categories: ['smartphone', 'laptops', 'accessories', 'all']
+            categories: ['Food', 'Agd', 'All']
         }
     };
 

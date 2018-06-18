@@ -27,7 +27,7 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider, ordersR
 
   private class UserCustomTable(tag: Tag) extends Table[UserCustom](tag, "user") {
 
-    def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+    def id = column[Long]("user_id", O.PrimaryKey, O.AutoInc)
 
     def firstName = column[Option[String]]("firstName")
 

@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import './index.css';
 import App from './container/HomePage/HomePage';
-import AddProducts from "./container/AddProcucts/AddProducts";
+import AddProducts from "./container/AddProducts/AddProducts";
 import ShoppingCartPage from './container/ShoppingCartPage/ShoppingCartPage';
 import ProductDescription from "./container/ProductDescription/ProductDescription";
 import SignIn from './container/SignIn/SignIn';

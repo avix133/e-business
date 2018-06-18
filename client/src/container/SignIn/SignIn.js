@@ -39,13 +39,12 @@ class SignIn extends Component {
 
         return (
             <Fragment>
-                <Header/>
+                {/*<Header/>*/}
                 <div className="container box-sign">
                     <div className="row">
                         <div className="col-lg-12 ">
                             <div className="sign-wrapper">
                                 <div>
-                                    <h1 className="main-title">SMART-SHOP</h1>
                                     <div>
                                         <p> Sign In</p>
                                         <span> | </span>
@@ -60,11 +59,11 @@ class SignIn extends Component {
                                     <button type="submit" className="btn-sign">Sign In</button>
                                 </form>
                                 {this.renderError()}
-                                <span className="form-or">or</span>
+                                <span className="form-or"></span>
                                 <div className="oauth">
                                     <a href="http://localhost:9090/signIn">
                                         <button className="btn-oauth">
-                                            Log by OAuth<img src="images/oauth-2.png" alt=""/>
+                                            OAuth
                                         </button>
                                     </a>
                                 </div>

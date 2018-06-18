@@ -1,5 +1,4 @@
-[warn] /home/dawid/IdeaProjects/ebusiness/app/controllers/ApplicationController.scala:51:49: match may not be exhaustive.
-[warn] It would fail on the following input: Failure(_)
-[warn]     userCustomRepo.getByEmail(email).onComplete({
-[warn]                                                 ^
-[warn] one warning found
+[error] /home/dawid/IdeaProjects/ebusiness/app/controllers/CategoryController.scala:37:27: an expression of type Null is ineligible for implicit conversion
+[error]     var categoryId: Int = null
+[error]                           ^
+[error] one error found

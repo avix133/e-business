@@ -8,6 +8,7 @@ export default function (state = {}, action) {
                 userAdded: true
             };
         case AUTH_USER:
+            console.log("Reducer AUTH_USER");
             return {
                 ...state,
                 authenticated: true,
@@ -15,11 +16,13 @@ export default function (state = {}, action) {
                 productAddedToShoppingCarts: action.payload
             };
         case AUTH_ERROR:
+			console.log("Reducer AUTH_ERROR");
             return {
                 ...state,
                 error: action.payload
             };
         case UNAUTH_USER:
+			console.log("Reducer UNAUTH_USER");
             return {
                 ...state,
                 authenticated: false

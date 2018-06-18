@@ -181,5 +181,6 @@
     <orderEntry type="library" name="sbt: org.xerial:sqlite-jdbc:3.21.0:jar" level="project" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="jquery-3.2.1.slim" level="application" />
   </component>
 </module>

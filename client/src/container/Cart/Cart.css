@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
 .shopping-cart-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: Helvetica, sans-serif;
   margin-bottom: 50px; }
 
 .title-table-column {
@@ -10,7 +10,7 @@
     display: block;
     width: 20%;
     text-align: center;
-    font-family: "Montserrat", sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: 600; }
   .title-table-column span:first-child {
     width: 40%;
@@ -32,21 +32,21 @@
     text-align: center; }
     .summary div a {
       text-decoration: none;
-      font-family: "Montserrat", sans-serif;
+      font-family: Helvetica, sans-serif;
       color: #000000; }
       .summary div a i {
         margin-right: 20px;
         color: #007bff;
         font-size: 20px; }
     .summary div p {
-      font-family: "Montserrat", sans-serif; }
+      font-family: Helvetica, sans-serif; }
       .summary div p span {
         margin-left: 15px;
         font-weight: 600; }
     .summary div .btn-buy-cart {
       background: #7CBB00;
       color: #ffffff;
-      font-family: "Montserrat", sans-serif;
+      font-family: Helvetica, sans-serif;
       font-size: 18px;
       border: none;
       width: 160px;

@@ -55,13 +55,12 @@ class SignUp extends Component {
 
         return (
             <Fragment>
-                <Header/>
+                {/*<Header/>*/}
             <div className="container-fluid box-sign">
                 <div className="row">
                     <div className="col-lg-12 ">
                         <div className="sign-wrapper">
                             <div>
-                                <h1 className="main-title">SMART-SHOP</h1>
                                 <div>
                                     <Link to="/signin">Sign In </Link>
                                     <span> | </span>
@@ -70,12 +69,12 @@ class SignUp extends Component {
                             </div>
                             <form id="signup" className="sign-style"
                                   onSubmit={handleSubmit((values) => this.handleFormSubmit(values))}>
-                                <Field type="text" name="username" component={renderField} label="Add your username"/>
-                                <Field type="text" name="email" component={renderField} label="Add your email"/>
+                                <Field type="text" name="username" component={renderField} label="Username"/>
+                                <Field type="text" name="email" component={renderField} label="Email"/>
                                 <Field type="password" name="password" component={renderField}
-                                       label="Add your password"/>
+                                       label="Password"/>
                                 <Field type="password" name="confirmPassword" component={renderField}
-                                       label="Confirm your password"/>
+                                       label="Confirm password"/>
                                 <button type="submit" className="btn-sign">Sign Up</button>
                             </form>
                             {this.renderError()}

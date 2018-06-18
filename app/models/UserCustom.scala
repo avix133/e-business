@@ -1,8 +1,5 @@
 package models
 
-import java.util.UUID
-
-import com.mohiva.play.silhouette.api.{Identity, LoginInfo}
 import play.api.libs.json.{Json, OFormat}
 
 /**
@@ -15,7 +12,7 @@ import play.api.libs.json.{Json, OFormat}
   *
   */
 case class UserCustom(
-                        id: Int,
+                        id: Long,
                         firstName: Option[String],
                         lastName: Option[String],
                         fullName: Option[String],

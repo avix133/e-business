@@ -9,8 +9,8 @@ import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.{ExecutionContext, Future}
 
 
-class CartControllers @Inject()(cartRepo: CartRepository,
-                                cc: MessagesControllerComponents
+class CartController @Inject()(cartRepo: CartRepository,
+                               cc: MessagesControllerComponents
                                )(implicit ec: ExecutionContext)
   extends MessagesAbstractController(cc) {
 
@@ -32,7 +32,7 @@ class CartControllers @Inject()(cartRepo: CartRepository,
     }
   }
 
-  def getCart(id: String): Action[AnyContent] = Action.async { implicit request =>
+  def getCartId(id: String): Action[AnyContent] = Action.async { implicit request =>
     var cartById = new ArrayBuffer[Cart]()
 
     cartRepo.list().map { carts =>

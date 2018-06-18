@@ -36,6 +36,7 @@ export const addProductToShoppingCart = idProduct => async dispatch => {
     try {
         const arrayProductInShoppingCart = [];
         const productInShoppingCart = JSON.parse(localStorage.getItem('productInShoppingCart'));
+        console.log("adding product to shopping cart: " + idProduct);
 
         if (productInShoppingCart) {
             arrayProductInShoppingCart.push(...productInShoppingCart, idProduct);
@@ -128,13 +129,11 @@ export const removeProductOfShoppingCart = (idProduct, force = false) => async d
 export const getProducts = () => async dispatch => {
     try {
         const {data: products} = await axios.get(`/products`);
+        console.log("getProducts..." + products);
 
         products.map(product => {
-            let {prize, name} = product;
-            product.cost = prize;
-            product.title = name;
-            prize = parseInt(prize.substring(0, prize.length - 1), 10);
-            prize > 1000 ? product.freeDelivery = true : product.freeDelivery = false;
+            // console.log("Product: " + product.name);
+			// console.log("Product price: " + product.price);
 
             return product;
         });
@@ -149,15 +148,21 @@ export const getProduct = id => async dispatch => {
     try {
         const {data: product} = await axios.get(`/product/${id}`);
         const rightProduct = product[0];
-        rightProduct.cost = product[0].prize;
+        rightProduct.price = product[0].prize;
         dispatch({type: GET_PRODUCT, payload: rightProduct});
     } catch (e) {
         console.error(e);
     }
 };
 
-export const filterProductsByCategory = category => dispatch => {
-    dispatch({type: FILTER_PRODUCTS_BY_CATEGORY, payload: category});
+export const filterProductsByCategory = category => async dispatch => {
+	const {data: categoryName} = await axios.get(`/category/${category}`);
+	var result = "All";
+	if (categoryName){
+	    result = categoryName
+    }
+
+    dispatch({type: FILTER_PRODUCTS_BY_CATEGORY, payload: result});
 };
 
 export const filterProductsByKeyWords = keywords => dispatch => {
@@ -258,17 +263,21 @@ export const authError = (error) => {
 export const fetchUser = () => async dispatch => {
     try {
 
-        const {data: response} = await axios.get('/currency_user');
+        const {data: response} = await axios.get('/current_user');
+        console.log("Fetching user email..." + response.role);
 
         if (response.userID) {
-            console.log(response.userID);
+            console.log("User id: " + response.userID);
             if (response.userID) {
-                const {data: productsInShoppingCartPerUser} = await axios.get(`/usercart/${response.userID}`);
-                console.log(productsInShoppingCartPerUser);
-                if (productsInShoppingCartPerUser.length > 0) {
-                    localStorage.setItem('productInShoppingCart', productsInShoppingCartPerUser[0].products);
+            	console.log("email: " + response.role);
+                const {data: cartId} = await axios.get(`/usercart/${response.role}`);
+                console.log("Cart id: " + cartId[0].cart_id);
+                const {data: productsInCart} = await axios.get(`/products_in_cart/${cartId[0].cart_id}`);
+                console.log("Products in cart: " + productsInCart);
+                if (productsInCart.length > 0) {
+                    localStorage.setItem('productInCart', productsInCart[0].products);
                 } else {
-                    localStorage.setItem('productInShoppingCart', JSON.stringify(productsInShoppingCartPerUser));
+                    localStorage.setItem('productInCart', JSON.stringify(productsInCart));
                 }
             }
 

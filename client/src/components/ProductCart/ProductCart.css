@@ -11,7 +11,7 @@
     min-height: 100px; }
     .custom-row div.custom-td p {
       margin: 0 15px;
-      font-family: "Montserrat", sans-serif; }
+      font-family: Helvetica, sans-serif; }
     .custom-row div.custom-td i {
       cursor: pointer; }
     .custom-row div.custom-td i.fa-plus {

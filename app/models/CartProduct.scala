@@ -2,9 +2,9 @@ package models
 
 import play.api.libs.json.{Json, OFormat}
 
-case class Cart(cart_id: Int, user: String)
+case class CartProduct(cart: Long, product: Long, amount: Int)
 
-object Cart {
-  implicit val commentsFormat: OFormat[Cart] = Json.format[Cart]
+object CartProduct {
+  implicit val categoryFormat: OFormat[CartProduct] = Json.format[CartProduct]
 }
 

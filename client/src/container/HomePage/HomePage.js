@@ -14,10 +14,12 @@ class HomePage extends Component {
 
     render() {
         return (
-            <Fragment>
-                <Header/>
-                <ProductCards/>
-            </Fragment>
+			<div style={{backgroundColor:'#6dc4aa'}}>
+                <Fragment>
+                    <Header/>
+                    <ProductCards/>
+                </Fragment>
+			</div>
         );
     }
 }

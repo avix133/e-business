@@ -29,7 +29,7 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
 
     productFromJson match {
       case JsSuccess(p: Product, path: JsPath) =>
-        productsRepo.create(p.name, p.description, p.keyWords, p.category, p.imgUrl, p.prize).map {
+        productsRepo.create(p.name, p.description, p.category, p.image, p.price).map {
           _ =>
             Ok(Json.obj(
               "status" -> "OK"
@@ -46,7 +46,7 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
     }
   }
 
-  def getProduct(id: Int) = Action.async { implicit request =>
+  def getProduct(id: Int):Action[AnyContent] = Action.async { implicit request =>
     var productsById = new ArrayBuffer[Product]()
 
     productsRepo.list().map { products =>
@@ -58,33 +58,7 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
       Ok(Json.toJson(productsById))
     }
   }
-
-  def getProductsByKeyWords: Action[JsValue] = Action.async(parse.json) { implicit request =>
-
-    val keyFromJson: JsResult[KeySearch] = Json.fromJson[KeySearch](request.body)
-    var productsByKeyWords = new ArrayBuffer[Product]()
-    var key = new ArrayBuffer[StringBuffer]()
-
-    keyFromJson match {
-      case JsSuccess(k: KeySearch, path: JsPath) =>
-        k.key.split(",").foreach(k => {
-          key += new StringBuffer(k)
-        })
-    }
-
-    productsRepo.list().map { products =>
-      products.foreach(product => {
-        key.foreach(k => {
-          if (product.keyWords.contentEquals(k)) {
-            productsByKeyWords += product
-          }
-        })
-
-      })
-    }
-
-    Future.successful(Ok(toJson(productsByKeyWords)))
-  }
 }
+
 
 case class CreateProductForm(name: String, description: String, category: Int)

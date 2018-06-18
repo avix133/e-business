@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
 .product-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 38px;
   font-weight: 600; }
 
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: flex-end; }
     .prize-box .prize p {
-      font-family: "Montserrat", sans-serif;
+      font-family: Helvetica, sans-serif;
       font-size: 14px;
       display: flex;
       align-items: flex-end; }
@@ -58,7 +58,7 @@
 
 .product-container .avaible {
   color: #7CBB00;
-  font-family: "Montserrat", sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 600;
   margin: 20px 0; }
 
@@ -71,13 +71,13 @@
   .product-container .free-delivery img {
     margin-right: 10px; }
   .product-container .free-delivery span {
-    font-family: "Montserrat", sans-serif; }
+    font-family: Helvetica, sans-serif; }
 
 .product-container .btn-buy-product {
   background: #7CBB00;
   height: 40px;
   width: 200px;
-  font-family: "Montserrat", sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 14px;
   border: none;
   color: #ffffff;

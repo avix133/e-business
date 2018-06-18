@@ -1,7 +1,5 @@
 package models
 
-import java.util.UUID
-
 import javax.inject.{Inject, Singleton}
 import play.api.db.slick.DatabaseConfigProvider
 import slick.jdbc.JdbcProfile
@@ -14,36 +12,34 @@ import scala.concurrent.{ExecutionContext, Future}
   * @param dbConfigProvider The Play db config provider. Play will inject this for you.
   */
 @Singleton
-class CartRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
+class CartProductRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
 
   val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import profile.api._
 
-  class CartTable(tag: Tag) extends Table[Cart](tag, "cart_ids") {
+  class CartProductTable(tag: Tag) extends Table[CartProduct](tag, "cart_product") {
 
-    def cartId = column[Int]("cart_id", O.PrimaryKey, O.AutoInc)
+    def cartId = column[Long]("cart", O.PrimaryKey)
 
-    def userId = column[String]("user")
+    def product = column[Long]("product", O.PrimaryKey)
 
-    def * = (cartId, userId) <> ((Cart.apply _).tupled, Cart.unapply)
+    def amount = column[Int]("amount")
+
+    def * = (cartId, product, amount) <> ((CartProduct.apply _).tupled, CartProduct.unapply)
   }
 
-  val cart = TableQuery[CartTable]
+  val cart = TableQuery[CartProductTable]
 
-  def create(userId: String): Future[Cart] = db.run {
-    (cart.map(c => c.userId)
+  def create(cartId:Long, productId: Long, amount: Int): Future[CartProduct] = db.run {
+    (cart.map(c => c.cartId)
       returning cart.map(_.cartId)
-      into { case (`userId`, id) => Cart(id, userId) }
-      ) += userId
+      into { case (`cartId`, id) => CartProduct(id, productId, amount) }
+      ) += cartId
   }
 
-  def list(): Future[Seq[Cart]] = db.run {
+  def list(): Future[Seq[CartProduct]] = db.run {
     cart.result
-  }
-
-  def updateById(id: Int, row: Cart): Future[Int] = db.run {
-    cart.filter(_.cartId === id).update(row)
   }
 }
